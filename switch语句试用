@@ -1,0 +1,20 @@
+#include <stdio.h>
+void main()
+{c
+ int a,m;
+ scanf("%d",&a);
+ switch(a/10)
+ {
+ case 0:
+ case 1:
+ case 2:
+ case 3:
+ case 4:
+ case 5:m=1;break;
+ case 6:m=2;break;
+ case 7:m=3;break;
+ case 8:m=4;break;
+ default:m=5;break;
+ }
+ printf("m=%d\n",m);
+}
