@@ -1,0 +1,71 @@
+#include <stdio.h>
+void input(int b[][3]);
+void sort(int c[][3]);
+void find(int d[][3],int z,int f[2]);
+int main()
+{
+    int a[10][3],n,e[2];
+    input(a);
+    scanf("%d",&n);
+    sort(a);
+    find(a,n,e);
+    if(e[0]!=0&&e[1]!=0)
+    printf("score:%4d%4d",e[0],e[1]);
+    else printf("Can't find");
+    printf("\n");
+    return 0;
+}
+void input(int b[][3])
+{
+    int i,j;
+    for(i=0;i<10;i++)
+    {
+        for(j=0;j<3;j++)
+        scanf("%d",&b[i][j]);
+    }
+}
+void sort(int c[][3])
+{
+    int i,j,k,p,q;
+    for(i=0;i<9;i++)
+    {
+        k=0;p=0;q=0;
+        for(j=0;j<9-i;j++)
+        {
+            if(c[j][0]>c[j+1][0])
+            {
+                k=c[j][0];
+                c[j][0]=c[j+1][0];
+                c[j+1][0]=k;
+                p=c[j][1];
+                c[j][1]=c[j+1][1];
+                c[j+1][1]=p;
+                q=c[j][2];
+                c[j][2]=c[j+1][2];
+                c[j+1][2]=q;
+            }
+        }
+    }
+}
+void find(int d[][3],int z,int f[2])
+{
+    int mid,max,min;
+    f[0]=0;
+    f[1]=0;
+    min=0;
+    max=9;
+    while(min<=max)
+    {
+        mid=(max+min)/2;
+        if(d[mid][0]==z)
+        {
+            f[0]=d[mid][1];
+            f[1]=d[mid][2];
+            break;
+        }
+        else if(d[mid][0]>z)
+        max=mid-1;
+        else if(d[mid][0]<z)
+        min=mid+1;
+        }
+}
