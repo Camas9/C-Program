@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main(){
+    int N,M,i,j,t,n,T=0,k=0,P=0;
+	scanf("%d %d",&N,&M);
+	for(i=0;i<N;i++)
+	{
+		scanf("%d",&n);
+		T+=n;
+		t=0;
+		for(j=0;j<M;j++)
+		{
+			scanf("%d",&n);
+			t+=n;
+		}
+		t=-t;
+		T-=t;
+			if(t>P)
+			{
+				P=t;
+				k=i+1;
+			}
+	}
+	printf("%d %d %d\n",T,k,P);
+	return 0;
+}
