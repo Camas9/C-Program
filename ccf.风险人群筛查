@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main(){
+     int n,i,j,k,t,xl,yd,xr,yu;
+  int x,y,s,a,b,passcount=0,staycount=0;
+     scanf("%d %d %d %d %d %d %d",&n,&k,&t,&xl,&yd,&xr,&yu);
+  for(i=0;i<n;i++){
+   a=0,b=0;
+   s=0;
+   for(j=0;j<t;j++){
+    scanf("%d %d",&x,&y);
+    if((x>=xl&&x<=xr)&&(y>=yd&&y<=yu)){
+     s++;
+     a=1;
+        if(s>=k)
+      b=1;
+    }
+    else s=0;
+    if(j==t-1){
+     if(a)
+      passcount++;
+     if(b)
+      staycount++;
+    }
+   }
+  }
+  printf("%d\n%d\n",passcount,staycount);
+  return 0;
+}
