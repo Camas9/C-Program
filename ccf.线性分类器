@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main()
+{
+ struct doc{
+  int x;
+  int y;
+  char type;
+ }doc[1000];
+ struct line{
+  int l0;
+  int l1;
+  int l2;
+ }line[20];
+    int n,m,i,j,s,l;
+	scanf("%d %d",&n,&m);
+    for(i=0;i<n;i++){
+	scanf("%d %d %c",&doc[i].x,&doc[i].y,&doc[i].type);
+	}
+	for(i=0;i<m;i++){
+	scanf("%d %d %d",&line[i].l0,&line[i].l1,&line[i].l2);
+	}
+	for(i=0;i<m;i++){
+      l=line[i].l0+line[i].l1*doc[0].x+line[i].l2*doc[0].y;
+	  if((l>0&&doc[0].type=='A')||(l<0&&doc[0].type=='B'))
+		  s=1;
+	  else s=0;
+	  for(j=0;j<n;j++)
+	  {
+		  l=line[i].l0+line[i].l1*doc[j].x+line[i].l2*doc[j].y;
+		  if(s==1)
+		  {
+			  if(!((l>0&&doc[j].type=='A')||(l<0&&doc[j].type=='B')))
+			  {
+				  printf("No\n");
+				  break;
+			  }
+		  }
+		  else
+		  {
+			 if(!((l>0&&doc[j].type=='B')||(l<0&&doc[j].type=='A')))
+			 {
+			  printf("No\n");
+			  break;
+			 }
+		  }
+	  }
+		    if(j==n) printf("Yes\n");
+	}
+	return 0;
+}
