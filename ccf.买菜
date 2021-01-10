@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main(){
+    int n,i,j,c,d,s=0;
+	int a[2000][2];
+	scanf("%d",&n);
+	for(i=0;i<n;i++){
+		scanf("%d %d",&a[i][0],&a[i][1]);
+	}
+	for(i=0;i<n;i++){
+		scanf("%d %d",&c,&d);
+		for(j=0;j<n;j++){
+			if(c>=a[j][0]&&c<=a[j][1]){
+				if(d<=a[j][1]){
+					s=s+d-c;
+				}
+				else s=s+a[j][1]-c;
+			}
+			else if(a[j][0]>c&&a[j][0]<d){
+				if(d<=a[j][1]){
+					s=s+d-a[j][0];
+				}
+				else s=s+a[j][1]-a[j][0];
+			}
+		}
+	}
+	printf("%d\n",s);
+	return 0;
+}
