@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main(){
+    int n,i;
+	int day1[1000]={0},day2[1000]={0};
+	scanf("%d",&n);
+    for(i=0;i<n;i++){
+		scanf("%d",&day1[i]);
+	}
+    day2[0]=(day1[0]+day1[1])/2;
+	day2[n-1]=(day1[n-1]+day1[n-2])/2;
+    for(i=1;i<n-1;i++){
+		day2[i]=(day1[i-1]+day1[i]+day1[i+1])/3;
+	}
+	for(i=0;i<n;i++){
+		printf("%d ",day2[i]);
+	}
+	return 0;
+}
