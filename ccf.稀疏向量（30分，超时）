@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main(){
+	struct l{
+		int a;
+		int b;
+	}u[500000],v[500000];
+    int n,c,d,i,j,k=0;
+	long s=0;
+    scanf("%d %d %d",&n,&c,&d);
+    for(i=0;i<c;i++)
+		scanf("%d %d",&u[i].a,&u[i].b);
+	for(i=0;i<d;i++)
+		scanf("%d %d",&v[i].a,&v[i].b);
+	for(i=0;i<n;i++){
+		for(j=0;j<d;j++){
+			if(u[i].a==v[j].a){
+				s+=u[i].b*v[j].b;
+				k=j+1;
+				break;
+			}
+			if(u[i].a<v[j].a){
+				k=j;
+				break;
+			}
+		}
+	}
+		printf("%ld\n",s);
+	return 0;
+}
