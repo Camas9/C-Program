@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main(){
+    int n,i,r,y,g,t=0;
+	int a[100][2];
+	scanf("%d %d %d",&r,&y,&g);
+    scanf("%d",&n);
+	for(i=0;i<n;i++){
+		scanf("%d %d",&a[i][0],&a[i][1]);
+	}
+    for(i=0;i<n;i++){
+		switch(a[i][0]){
+		case 0:t=t+a[i][1];break;
+		case 1:t=t+a[i][1];break;
+		case 2:t=t+a[i][1];
+			   t=t+r;
+			   break;
+		case 3:break;
+		}
+	}
+	printf("%d\n",t);
+	return 0;
+}
