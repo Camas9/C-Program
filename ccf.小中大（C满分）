@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+ int i,n,max,min,mid,f=0;
+  float mid1;
+  int a[100000];
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+   scanf("%d",&a[i]);
+  if(a[0]<a[n-1])
+  {min=a[0];
+   max=a[n-1];
+   } 
+  else
+  {min=a[n-1];
+   max=a[0];
+  }
+  if(n%2==0)
+  {
+   if((a[n/2]+a[n/2-1])%2!=0)
+   {
+    f=1;
+    mid1=(a[n/2]+a[n/2-1])/2+0.5;
+   }else
+    mid=(a[n/2]+a[n/2-1])/2;
+   }
+   else mid=a[(n-1)/2];
+  if(f)
+   printf("%d %.1f %d\n",max,mid1,min);
+  else
+   printf("%d %d %d\n",max,mid,min);
+ return 0;
+}
