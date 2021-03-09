@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+	double s;
+	int a;
+	scanf("%lf",&s);
+	a=(int)s/1000;
+	switch(a){
+	case 0:s=s;break;
+	case 1:s-=0.1*s;break;
+	case 2:s-=0.15*s;break;
+    case 3:s-=0.2*s;break;
+	default:s-=0.25*s;break;
+				}
+	printf("%.2lf\n",s);
+	return 0;
+}
